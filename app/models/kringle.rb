@@ -1,0 +1,2 @@
+class Kringle
+end

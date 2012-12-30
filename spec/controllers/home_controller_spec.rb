@@ -7,6 +7,13 @@ describe HomeController do
       get 'index'
       response.should be_success
     end
+
+    it "should create a new kringle" do
+      mock Kringle
+      get 'index'
+      assigns(:kringle).should be_a Kringle
+    end
+
   end
 
 end
