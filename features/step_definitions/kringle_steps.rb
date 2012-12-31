@@ -10,7 +10,7 @@ When /^I visit the homepage$/ do
 end
 
 When /^I enter my email$/ do
-  fill_in "Your email", with: @visitor[:email]
+  fill_in "user[email]", with: @visitor[:email]
 end
 
 When /^a password$/ do

@@ -1,6 +1,7 @@
 %h3 Manage your Kris Kringle
 = form_for @kringle do |f|
   = fields_for @kringle.kringlehead do |kh|
+    = label_tag 'user[email]', 'email'
     = kh.text_field :email
 -
 
