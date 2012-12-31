@@ -1,4 +1,6 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    Manage your Kris Kringle
+%h3 Manage your Kris Kringle
+= form_for @kringle do |f|
+  = fields_for @kringle.kringlehead do |kh|
+    = kh.text_field :email
+-
+

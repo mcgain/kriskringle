@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230180132) do
+ActiveRecord::Schema.define(:version => 20121231033732) do
+
+  create_table "kringles", :force => true do |t|
+    t.integer "kringlehead_id"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

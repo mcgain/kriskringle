@@ -14,6 +14,10 @@ describe HomeController do
       assigns(:kringle).should be_a Kringle
     end
 
+    it "should create a kringlehead" do
+      mock Kringle
+      get 'index'
+      assigns(:kringle).kringlehead.should be_a User
+    end
   end
-
 end
