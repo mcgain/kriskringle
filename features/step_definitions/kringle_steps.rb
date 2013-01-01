@@ -1,4 +1,8 @@
-@participant = {email: "example@example.com"}
+require 'debugger'
+
+def create_participant
+  @participant = {email: "example@example.com"}
+end
 
 Given /^There is no user with my email address$/ do
   create_visitor
@@ -14,16 +18,21 @@ When /^I enter my email$/ do
 end
 
 When /^a password$/ do
-  fill_in "user_password", with: @visitor[:password]
-  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  fill_in "user[password]", with: @visitor[:password]
+  fill_in "user[password_confirmation]", :with => @visitor[:password]
 end
 
-When /^Another persons email$/ do
-  fill_in "Invite some people", with: @participant[:email]
+When /^another persons email$/ do
+  create_participant
+  fill_in "participants", with: @participant[:email]
+end
+
+When /^submit the page$/ do
+ click_button "Create Kringle"
 end
 
 Then /^I should see the kringle management page$/ do
-  page.should have_content "Manage your Kris Kringle"
+  page.should have_content("Manage your Kris Kringle")
 end
 
 

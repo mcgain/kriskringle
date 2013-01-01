@@ -11,7 +11,8 @@ Feature: Create a Kringle
     When I visit the homepage
     And I enter my email
     And a password
-    And Another persons email
+    And another persons email
+    And submit the page
     Then I should see a successful sign up message
     And I should see the kringle management page
 

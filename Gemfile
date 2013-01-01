@@ -12,6 +12,7 @@ gem "haml-rails", ">= 0.3.5", :group => :development
 gem "hpricot", ">= 0.8.6", :group => :development
 gem "ruby_parser", ">= 3.1.1", :group => :development
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
+gem "shoulda", ">= 3.2.2", :group => [:development, :test]
 gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
@@ -30,3 +31,4 @@ gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "libv8", ">= 3.11.8"
 gem "therubyracer", ">= 0.11.0", :group => :assets, :platform => :ruby, :require => "v8"
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
+gem "debugger", group: [:development, :test]

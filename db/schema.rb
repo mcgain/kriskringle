@@ -11,10 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121231033732) do
+ActiveRecord::Schema.define(:version => 20130101060606) do
 
   create_table "kringles", :force => true do |t|
     t.integer "kringlehead_id"
+  end
+
+  create_table "kringles_users", :id => false, :force => true do |t|
+    t.integer "kringles_id"
+    t.integer "users_id"
   end
 
   create_table "roles", :force => true do |t|
