@@ -20,9 +20,16 @@ describe KringlesController do
       }
 
       post "create", params
+      flash.now[:message].should_not be_nil
       response.should render_template("show")
       assigns(:kringle).should == kringle
     end
   end
+
+  it "filters parameters to prevent mass-assignment security" do
+
+
+  end
+
 end
 

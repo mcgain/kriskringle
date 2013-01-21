@@ -33,3 +33,4 @@ gem "therubyracer", ">= 0.11.0", :group => :assets, :platform => :ruby, :require
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 
 gem "debugger", :group => [:development, :test]
+gem "strong_parameters"
