@@ -2,8 +2,9 @@ require 'debugger'
 
 class KringlesController < ApplicationController
   def create
-    user = User.new(user_params)
-    @kringle = Kringle.new(kringlehead: user)
+    @kringle = Kringle.new(kringlehead: current_user)
+    @kringle.add_participants(params[:kringle][:participants])
+    @kringle.save!
     render "show"
   end
 

@@ -2,27 +2,28 @@ require 'spec_helper'
 
 describe KringlesController do
   describe "create" do
-    it "creates a kringle from params" do
-      user = mock_model(User)
-      User.should_receive(:new).and_return(user)
-      kringle = mock_model(Kringle)
-      Kringle
-        .should_receive(:new)
-        .with(kringlehead: user)
-        .and_return(kringle)
+    context "logged in user" do
+      login_user
 
-      params = {user:
-          {email:
-            "example@example.com",
-            password: "password"
-          },
-          participants: "foo@foo.com"
-      }
+      it "creates a kringle for that user" do
+        kringle = mock_model(Kringle)
+        kringle.should_receive(:add_participants).with(
+          "bob@example.com, fred@example.com")
+        kringle.should_receive(:save!)
 
-      post "create", params
-      flash.now[:message].should_not be_nil
-      response.should render_template("show")
-      assigns(:kringle).should == kringle
+        user = subject.current_user
+        Kringle
+          .should_receive(:new)
+          .with(kringlehead: user)
+          .and_return(kringle)
+
+        params = {kringle: {
+          participants: "bob@example.com, fred@example.com"
+        }}
+        post "create", params
+        response.should render_template("show")
+        assigns(:kringle).should == kringle
+      end
     end
   end
 
