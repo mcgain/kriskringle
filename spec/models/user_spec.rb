@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe User do
   describe 'relationships' do
-    it { should have_and_belong_to_many(:kringles) }
+    it { should have_many(:kringles) }
+    it { should have_many(:participants) }
+    it { should have_many(:managed_kringles) }
   end
 
   describe 'devise' do
