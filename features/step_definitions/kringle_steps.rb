@@ -22,7 +22,7 @@ When /^a password$/ do
   fill_in "user[password_confirmation]", :with => @visitor[:password]
 end
 
-When /^another persons email$/ do
+When /^I enter some participants$/ do
   create_participant
   fill_in "participants", with: @participant[:email]
 end

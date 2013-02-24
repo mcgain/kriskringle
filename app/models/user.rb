@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
-  has_and_belongs_to_many :kringles
+  has_many :participants
+  has_many :kringles, through: :participants
+  has_many :managed_kringles, class_name: "Kringle", as: :kringlehead
 
   rolify
   # Include default devise modules. Others available are:

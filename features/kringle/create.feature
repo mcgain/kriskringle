@@ -1,6 +1,5 @@
 Feature: Create a Kringle
   In order to easily manage a Kris Kringle,
-  As a visitor
   I want to be able to create a Kringle
 
   Background:
@@ -11,9 +10,14 @@ Feature: Create a Kringle
     When I visit the homepage
     And I enter my email
     And a password
-    And another persons email
+    And I enter some participants
     And submit the page
     Then I should see a successful sign up message
     And I should see the kringle management page
 
-
+  Scenario: I logged in and create a kringle
+    Given I am logged in
+    When I visit the homepage
+    And I enter some participants
+    And submit the page
+    Then I should see the kringle management page
