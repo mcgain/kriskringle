@@ -17,9 +17,7 @@ describe KringlesController do
           .with(kringlehead: user)
           .and_return(kringle)
 
-        params = {kringle: {
-          participants: "bob@example.com, fred@example.com"
-        }}
+        params = { participants: "bob@example.com, fred@example.com" }
         post "create", params
         response.should render_template("show")
         assigns(:kringle).should == kringle
@@ -28,8 +26,6 @@ describe KringlesController do
   end
 
   it "filters parameters to prevent mass-assignment security" do
-
-
   end
 
 end
