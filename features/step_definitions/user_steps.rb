@@ -124,6 +124,8 @@ end
 When /^I edit my account details$/ do
   click_link "Edit account"
   fill_in "Name", :with => "newname"
+  fill_in "user_password", with: ""
+  fill_in "user_password_confirmation", with: ""
   fill_in "user_current_password", :with => @visitor[:password]
   click_button "Update"
 end

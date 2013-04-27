@@ -1,3 +1,5 @@
+require 'debugger'
+
 class UsersController < ApplicationController
   before_filter :authenticate_user!
 
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    debugger
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user], :as => :admin)
