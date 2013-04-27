@@ -32,7 +32,7 @@ When /^submit the page$/ do
 end
 
 Then /^I should see the kringle management page$/ do
-  page.should have_content("Manage your Kris Kringle")
+  page.should have_content("Manage your Kringle")
 end
 
 

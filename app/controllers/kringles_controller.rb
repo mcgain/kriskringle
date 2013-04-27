@@ -5,6 +5,7 @@ class KringlesController < ApplicationController
     @kringle = Kringle.new(kringlehead: current_user)
     @kringle.add_participants(params[:participants])
     @kringle.save!
+    flash.now[:success] =
     render "show"
   end
 
