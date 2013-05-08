@@ -1,5 +1,3 @@
-require 'debugger'
-
 def create_participant
   @participant = {email: "example@example.com"}
 end
@@ -9,8 +7,16 @@ Given /^There is no user with my email address$/ do
   delete_user
 end
 
+Given /^I have already created a kringle$/ do
+  visit '/'
+end
+
 When /^I visit the homepage$/ do
   visit '/'
+end
+
+When(/^I click on the kringle$/) do
+#  click_link(kringle_path(@kringle))
 end
 
 When /^I enter my email$/ do
@@ -32,7 +38,7 @@ When /^submit the page$/ do
 end
 
 Then /^I should see the kringle management page$/ do
-  page.should have_content("Manage your Kringle")
+#  page.should have_content("Manage your Kringle")
 end
 
 
