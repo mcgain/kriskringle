@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    @kringle = Kringle.new
+    @kringle.kringlehead = User.new
   end
 end

@@ -1,4 +1,12 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+%h3 Manage your Kris Kringle
+= form_for @kringle, url: kringles_path, html: {method: :post} do |f|
+  = fields_for @kringle.kringlehead do |kh|
+    = label_tag 'user[email]', 'email'
+    = kh.email_field :email
+    = label_tag 'user[password]', 'password'
+    = kh.password_field :password
+    = kh.password_field :password_confirmation
+  = label_tag 'participants', 'Invite some people'
+  = text_area_tag "participants"
+  = f.submit "Create Kringle"
+-
